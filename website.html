@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CTE | BPGC</title>
+  <link rel="icon" href="https://cte.bits-goa.ac.in/favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #000;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 100px;
+    }
+
+    .selectons {
+      display: flex;
+      gap: 30px;
+    }
+
+    .selectons a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .selectons a:hover {
+      color: limegreen;
+    }
+
+    .header img {
+        padding-left:50px;
+        height: 50px;
+    }
+
+    .technical {
+        background-color: rgb(235, 222, 222);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 100px;
+        margin-top: 50px;
+    }
+
+    .writing {
+        padding-left: 75px;
+        max-width: 600px;
+    }
+
+    .writing h2 {
+        text-align: left; 
+        font-size: 40px;
+        margin: 0;
+    }
+
+    .writing h4 {
+        text-align: left; 
+        color: grey;
+        font-weight: normal;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .writing p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .writing button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #00c400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .writing button:hover {
+      background-color: #009f00;
+    }
+
+    .technical img {
+      width: 500px;
+      max-width: 100%;
+      height: auto;
+      padding-right:50px; 
+    }
+
+    @media (max-width: 900px) {
+      .technical {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .technical img {
+        margin-top: 30px;
+      }
+    }
+
+    .aap {
+        background-color: rgb(186, 246, 207);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 100px;
+    }
+
+    .aapwrite {
+        padding-left: 75px;
+        max-width: 600px;
+    }
+
+    .appwrite h2 {
+        text-align: left; 
+        font-size: 40px;
+        margin: 0;
+    }
+
+    .aapwrite p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .aapwrite button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #00c400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .aapwrite button:hover {
+      background-color: #009f00;
+    }
+
+    .aap img {
+      width: 500px;
+      max-width: 100%;
+      height: auto;
+      padding-right:50px; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="https://bpgc-cte.org/logo.png" alt="CTE Logo" />
+    <div class="selectons">
+      <a href="https://bpgc-cte.org/catalog" target="_blank">Catalog</a>
+      <a href="https://bpgc-cte.org/faq" target="_blank">FAQ</a>
+      <a href="https://techweekend.bpgc-cte.org" target="_blank">TechWeekend</a>
+      <a href="https://bpgc-cte.org/auth/" target="_blank">Sign In</a>
+    </div>
+  </div>
+
+  <div class="technical">
+    <div class="writing">
+      <h2>Fostering Technical Culture</h2>
+      <h4>Since 2012</h4>
+      <p>
+        We conduct courses, workshops, host technical competitions, offer financial assistance to technical clubs and projects and organise academic help sessions
+      </p>
+      <button onclick="window.open('https://bpgc-cte.org/catalog', '_blank')">Find Courses</button>
+    </div>
+    <img src="https://bpgc-cte.org/img/hero.0b0d1711.svg" alt="Working People">
+  </div>
+
+  <div class="aap">
+    <div class="aapwrite">
+        <h2>AAP</h2>
+        <p>A relatively new initiative, the Academic Assistance Programme has been a huge success in helping the students of BITS Goa grasp concepts, cover difficult problems and achieve excellence in academic courses. The initiative empowers students to ask doubts and encounter problems under the guidance of highly motivated student mentors</p>
+        <button onclick="window.open('https://bpgc-cte.org/catalog', '_blank')">About AAP</button>
+    </div>
+    <img src="https://bpgc-cte.org/img/aap.2fc7351e.svg" alt="AAP Child">
+  </div>
+
+</body>
+</html>
