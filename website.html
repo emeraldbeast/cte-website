@@ -1,406 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CTE | BPGC</title>
-  <link rel="icon" href="https://cte.bits-goa.ac.in/favicon.ico" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTE | Alt Site</title>
+    <link rel="icon" href="https://cte.bits-goa.ac.in/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    *{
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: #000;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #000;
-    }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 100px;
-      position: sticky; 
-      top: 0px; 
-      background: white;
-      z-index: 1000; 
-    }
+        .header img {
+            height: 40px;
+        }
 
-    .selectons {
-      display: flex;
-      gap: 30px;
-    }
+        .selectons {
+            display: flex;
+            gap: 20px;
+        }
 
-    .selectons a {
-      text-decoration: none;
-      color: black;
-      font-weight: 500;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+        .selectons a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
 
-    .selectons a:hover {
-      background-color: limegreen;
-      color:gold
-    }
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
 
-    .header img {
-        padding-left:50px;
-        height: 50px;
-    }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #fff;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
 
-    .technical {
-        background-color:rgb(137, 246, 175);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 100px;
-    }
+        .mobile-menu a {
+            margin: 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .writing {
-        padding-left: 75px;
-        max-width: 600px;
-    }
+        .header img {
+            padding-left: min(50px, 1vw);
+            height: 50px;
+        }
 
-    .writing h2 {
-        text-align: left; 
-        font-size: 40px;
-        margin: 0;
-    }
+        .technical {
+            background-color: rgb(137, 246, 175);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
 
-    .writing h4 {
-        text-align: left; 
-        color: grey;
-        font-weight: normal;
-        font-size: 20px;
-        margin-top: 10px;
-    }
+        .writing {
+            padding-left: 75px;
+            max-width: 600px;
+        }
 
-    .writing p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-        color: #333;
-    }
+        .writing h2 {
+            text-align: left;
+            font-size: 40px;
+            margin: 0;
+        }
 
-    .writing button {
-      margin-top: 30px;
-      padding: 12px 25px;
-      font-size: 16px;
-      background-color: #00c400;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .writing h4 {
+            text-align: left;
+            color: grey;
+            font-weight: normal;
+            font-size: 20px;
+            margin-top: 10px;
+        }
 
-    .writing button:hover {
-      background-color: #009f00;
-    }
+        .writing p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            color: #333;
+        }
 
-    .technical img {
-      width: 500px;
-      max-width: 100%;
-      height: auto;
-      padding-right:50px; 
-    }
+        .writing button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #00c400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    @media (max-width: 900px) {
-      .technical {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-      }
+        .writing button:hover {
+            background-color: #009f00;
+        }
 
-      .technical img {
-        margin-top: 30px;
-      }
-    }
+        .technical img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            padding-right: 50px;
+        }
 
-    .aap {
-        background-color: rgb(186, 246, 207);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 100px;
-    }
+        .aap {
+            background-color: rgb(186, 246, 207);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
 
-    .aapwrite {
-        padding-left: 75px;
-        max-width: 600px;
-    }
+        .aapwrite {
+            padding-left: 75px;
+            max-width: 600px;
+        }
 
-    .appwrite h2 {
-        text-align: left; 
-        font-size: 40px;
-        margin: 0;
-    }
+        .appwrite h2 {
+            text-align: left;
+            font-size: 40px;
+            margin: 0;
+        }
 
-    .aapwrite p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-        color: #333;
-    }
+        .aapwrite p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            color: #333;
+        }
 
-    .aapwrite button {
-      margin-top: 30px;
-      padding: 12px 25px;
-      font-size: 16px;
-      background-color: #00c400;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .aapwrite button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #00c400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    .aapwrite button:hover {
-      background-color: #009f00;
-    }
+        .aapwrite button:hover {
+            background-color: #009f00;
+        }
 
-    .aap img {
-      width: 500px;
-      max-width: 100%;
-      height: auto;
-      padding-left:50px;
-      padding-right:50px; 
-    }
+        .aap img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
 
-    
-    .courses {
-        background-color: rgb(137, 246, 175);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 100px;
-    }
 
-    .coursewrite {
-        padding-left: 75px;
-        max-width: 600px;
-    }
+        .courses {
+            background-color: rgb(137, 246, 175);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
 
-    .coursewrite h2 {
-        text-align: left; 
-        font-size: 40px;
-        margin: 0;
-    }
+        .coursewrite {
+            padding-left: 75px;
+            max-width: 600px;
+        }
 
-    .coursewrite p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-        color: #333;
-    }
+        .coursewrite h2 {
+            text-align: left;
+            font-size: 40px;
+            margin: 0;
+        }
 
-    .courses img {
-      width: 500px;
-      max-width: 100%;
-      height: auto;
-      padding-right:50px; 
-    }
+        .coursewrite p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            color: #333;
+        }
 
-    .techwkd {
-        background-color:rgb(186, 246, 207);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 100px;
-    }
+        .courses img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            padding-right: 50px;
+        }
 
-    .techwkdwrite {
-        padding-left: 75px;
-        max-width: 600px;
-    }
+        .techwkd {
+            background-color: rgb(186, 246, 207);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
 
-    .techwkdwrite h2 {
-        text-align: left; 
-        font-size: 40px;
-        margin: 0;
-    }
+        .techwkdwrite {
+            padding-left: 75px;
+            max-width: 600px;
+        }
 
-    .techwkdwrite p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-        color: #333;
-    }
+        .techwkdwrite h2 {
+            text-align: left;
+            font-size: 40px;
+            margin: 0;
+        }
 
-    .techwkd img {
-      width: 500px;
-      max-width: 100%;
-      height: auto;
-      padding-left : 50px; 
-      padding-right:50px; 
-    }
+        .techwkdwrite p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            color: #333;
+        }
 
-    .pf {
-        background-color: rgb(137, 246, 175);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 100px;
-    }
+        .techwkd img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
 
-    .pfwrite {
-        padding-left: 75px;
-        max-width: 600px;
-    }
+        .pf {
+            background-color: rgb(137, 246, 175);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
 
-    .pfwrite h2 {
-        text-align: left; 
-        font-size: 40px;
-        margin: 0;
-    }
+        .pfwrite {
+            padding-left: 75px;
+            max-width: 600px;
+        }
 
-    .pfwrite p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-        color: #333;
-    }
+        .pfwrite h2 {
+            text-align: left;
+            font-size: 40px;
+            margin: 0;
+        }
 
-    .pf img {
-      width: 400px;
-      max-width: 100%;
-      height: 400;
-      /* padding-left : 50px;  */
-      padding-right:50px; 
-    }
+        .pfwrite p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            color: #333;
+        }
 
-    .tf {
-        background-color:rgb(186, 246, 207);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 100px;
-    }
+        .pf img {
+            width: 400px;
+            max-width: 100%;
+            height: 400;
+            /* padding-left : 50px;  */
+            padding-right: 50px;
+        }
 
-    .tfwrite {
-        padding-left: 75px;
-        max-width: 600px;
-    }
+        .tf {
+            background-color: rgb(186, 246, 207);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
 
-    .tfwrite h2 {
-        text-align: left; 
-        font-size: 40px;
-        margin: 0;
-    }
+        .tfwrite {
+            padding-left: 75px;
+            max-width: 600px;
+        }
 
-    .tfwrite p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-        color: #333;
-    }
+        .tfwrite h2 {
+            text-align: left;
+            font-size: 40px;
+            margin: 0;
+        }
 
-    .tf img {
-      width: 500px;
-      max-width: 100%;
-      height: auto;
-      padding-left : 50px; 
-      padding-right:50px; 
-    }
+        .tfwrite p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            color: #333;
+        }
 
-    .footer {
-      background-color: rgb(216, 215, 215);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 100px;
-    }
+        .tf img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
 
-    .footselect{
-      display: flex; 
-      gap :30px;  
-    }
+        .footer {
+            background-color: rgb(216, 215, 215);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 100px;
+        }
 
-    .footselect a {
-      color: black;
-      font-size: 32px; 
-      margin: 0 10px;
-    }
+        .footselect {
+            display: flex;
+            gap: 30px;
+        }
 
-  </style>
+        .footselect a {
+            color: black;
+            font-size: 32px;
+            margin: 0 10px;
+        }
+
+        @media screen and (max-width: 1300px) {
+
+            .technical {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .technical img {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .writing {
+                padding: 20px;
+                max-width: 90%;
+                text-align: center;
+            }
+
+            .aap {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .aap img {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .aapwrite {
+                padding: 20px;
+                max-width: 90%;
+                text-align: center ;
+            }
+
+            .courses {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .courses img {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .coursewrite {
+                padding: 20px;
+                max-width: 90%;
+                text-align: center;
+            }
+
+            .techwkd {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .techwkd img {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .techwkdwrite {
+                padding: 20px;
+                max-width: 90%;
+                text-align: center;
+            }
+
+            .pf {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .pf img {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .pfwrite {
+                padding: 20px;
+                max-width: 90%;
+                text-align: center;
+            }
+
+            .tf {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .tf img {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .tfwrite {
+                padding: 20px;
+                max-width: 90%;
+                text-align: center;
+            }
+
+            .selectons {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="header">
-    <img src="https://bpgc-cte.org/logo.png" alt="CTE Logo" />
-    <div class="selectons">
-      <a href="https://bpgc-cte.org/team" target="_blank">Our Team</a>
-      <a href="https://bpgc-cte.org/catalog" target="_blank">Catalog</a>
-      <a href="https://bpgc-cte.org/faq" target="_blank">FAQ</a>
-      <a href="https://techweekend.bpgc-cte.org" target="_blank">TechWeekend</a>
-      <a href="https://bpgc-cte.org/auth/" target="_blank">Sign In</a>
-    </div>
-  </div>
+    <div class="header">
+        <img src="https://bpgc-cte.org/logo.png" alt="CTE Logo" />
 
-  <div class="technical">
-    <div class="writing">
-      <h2>Fostering Technical Culture</h2>
-      <h4>Since 2012</h4>
-      <p>
-        We conduct courses, workshops, host technical competitions, offer financial assistance to technical clubs and projects and organise academic help sessions
-      </p>
-      <button onclick="window.open('https://bpgc-cte.org/catalog', '_blank')">Find Courses</button>
-    </div>
-    <img src="https://bpgc-cte.org/img/hero.0b0d1711.svg" alt="Working People">
-  </div>
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
 
-  <div class="aap">
-    <img src="https://bpgc-cte.org/img/aap.2fc7351e.svg" alt="AAP Child">
-    <div class="aapwrite">
-        <h2>AAP</h2>
-        <p>A relatively new initiative, the Academic Assistance Programme has been a huge success in helping the students of BITS Goa grasp concepts, cover difficult problems and achieve excellence in academic courses. The initiative empowers students to ask doubts and encounter problems under the guidance of highly motivated student mentors</p>
-        <button onclick="window.open('https://bpgc-cte.org/catalog', '_blank')">About AAP</button>
-    </div>
-  </div>
+        <!-- Normal Navigation -->
+        <div class="selectons">
+            <a href="https://bpgc-cte.org/team" target="_blank">Our Team</a>
+            <a href="https://bpgc-cte.org/catalog" target="_blank">Catalog</a>
+            <a href="https://bpgc-cte.org/faq" target="_blank">FAQ</a>
+            <a href="https://techweekend.bpgc-cte.org" target="_blank">TechWeekend</a>
+            <a href="https://bpgc-cte.org/auth/" target="_blank">Sign In</a>
+        </div>
 
-  <div class="courses">
-    <div class="coursewrite">
-        <h2>Courses</h2>
-        <p>Our longest running and most successful venture, courses is a great resource to expand your knowledge. Courses on a very wide array of topics ranging from music theory to robotics are taken by highly skilled and dedicated instructors from BITS goa who wish to pass on their knowledge and actively participate in the growth of campus tech culture</p>
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="https://bpgc-cte.org/team" target="_blank">Our Team</a>
+            <a href="https://bpgc-cte.org/catalog" target="_blank">Catalog</a>
+            <a href="https://bpgc-cte.org/faq" target="_blank">FAQ</a>
+            <a href="https://techweekend.bpgc-cte.org" target="_blank">TechWeekend</a>
+            <a href="https://bpgc-cte.org/auth/" target="_blank">Sign In</a>
+        </div>
     </div>
-    <img src="https://bpgc-cte.org/img/courses.091f5120.svg" alt="Courses Teacher">
-  </div>
 
-  <div class="techwkd">
-    <img src="https://bpgc-cte.org/img/techweekend.2c31992f.png" alt="Fair">
-    <div class="techwkdwrite">
-        <h2>Tech Weekend</h2>
-        <p>To promote the technical culture on campus, CTE, in collaboration with other technical clubs on campus, organizes a weekend filled with hackathons and competitions. These events range from fields like finance to aero-space and help students relax while encouraging healthy competition</p>
+
+    <div class="technical">
+        <div class="writing">
+            <h2>Fostering Technical Culture</h2>
+            <h4>Since 2012</h4>
+            <p>
+                We conduct courses, workshops, host technical competitions, offer financial assistance to technical
+                clubs and projects and organise academic help sessions
+            </p>
+            <button onclick="window.open('https://bpgc-cte.org/catalog', '_blank')">Find Courses</button>
+        </div>
+        <img src="https://bpgc-cte.org/img/hero.0b0d1711.svg" alt="Working People">
     </div>
-  </div>
 
-  <div class="pf">
-    <div class="pfwrite">
-        <h2>Project Fundings</h2>
-        <p>At CTE, we believe in lending active support to creativity and innovation. CTE funds up to 10 projects with support up to Rs 40,000 to help student teams contribute to the development of technical culture on campus</p>
+    <div class="aap">
+        <img src="https://bpgc-cte.org/img/aap.2fc7351e.svg" alt="AAP Child">
+        <div class="aapwrite">
+            <h2>AAP</h2>
+            <p>A relatively new initiative, the Academic Assistance Programme has been a huge success in helping the
+                students of BITS Goa grasp concepts, cover difficult problems and achieve excellence in academic
+                courses. The initiative empowers students to ask doubts and encounter problems under the guidance of
+                highly motivated student mentors</p>
+            <button onclick="window.open('https://bpgc-cte.org/catalog', '_blank')">About AAP</button>
+        </div>
     </div>
-    <img src="https://static.vecteezy.com/system/resources/previews/000/681/178/original/a-businessman-watering-light-bulb-shape-plant.jpg" alt="Watering Plants">
-  </div>
 
-  <div class="tf">
-    <img src="https://bpgc-cte.org/img/techforum.c8d1a72c.svg" alt="Talking People">
-    <div class="tfwrite">
-        <h2>Tech Forums</h2>
-        <p>There are communities on campus, interest groups, topics, issues, queries which haven’t quite been able to be centralized. We, at CTE, envisioned an online place, one that can answer all these needs. A place with tags, discussions, user-friendly UI, moderators, timed events, and sessions. A one-stop location for all answers.</p>
+    <div class="courses">
+        <div class="coursewrite">
+            <h2>Courses</h2>
+            <p>Our longest running and most successful venture, courses is a great resource to expand your knowledge.
+                Courses on a very wide array of topics ranging from music theory to robotics are taken by highly skilled
+                and dedicated instructors from BITS goa who wish to pass on their knowledge and actively participate in
+                the growth of campus tech culture</p>
+        </div>
+        <img src="https://bpgc-cte.org/img/courses.091f5120.svg" alt="Courses Teacher">
     </div>
-  </div>
 
-  <div class="footer">
-    <h3>© CTE BPGC 2025</h3>
-    <div class="footselect">
-      <a href="https://www.facebook.com/ctebpgc/" target="_blank"><i class = "fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/ctebpgc" target="_blank"><i class = "fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/company/center-for-technical-education-bits-goa" target="_blank"><i class = "fab fa-linkedin"></i></a>
+    <div class="techwkd">
+        <img src="https://bpgc-cte.org/img/techweekend.2c31992f.png" alt="Fair">
+        <div class="techwkdwrite">
+            <h2>Tech Weekend</h2>
+            <p>To promote the technical culture on campus, CTE, in collaboration with other technical clubs on campus,
+                organizes a weekend filled with hackathons and competitions. These events range from fields like finance
+                to aero-space and help students relax while encouraging healthy competition</p>
+        </div>
     </div>
-  </div>
 
+    <div class="pf">
+        <div class="pfwrite">
+            <h2>Project Fundings</h2>
+            <p>At CTE, we believe in lending active support to creativity and innovation. CTE funds up to 10 projects
+                with support up to Rs 40,000 to help student teams contribute to the development of technical culture on
+                campus</p>
+        </div>
+        <img src="https://static.vecteezy.com/system/resources/previews/000/681/178/original/a-businessman-watering-light-bulb-shape-plant.jpg"
+            alt="Watering Plants">
+    </div>
+
+    <div class="tf">
+        <img src="https://bpgc-cte.org/img/techforum.c8d1a72c.svg" alt="Talking People">
+        <div class="tfwrite">
+            <h2>Tech Forums</h2>
+            <p>There are communities on campus, interest groups, topics, issues, queries which haven’t quite been able
+                to be centralized. We, at CTE, envisioned an online place, one that can answer all these needs. A place
+                with tags, discussions, user-friendly UI, moderators, timed events, and sessions. A one-stop location
+                for all answers.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>© CTE BPGC 2025</h3>
+        <div class="footselect">
+            <a href="https://www.facebook.com/ctebpgc/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/ctebpgc" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/center-for-technical-education-bits-goa" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </body>
+
 </html>
